@@ -6,7 +6,7 @@ const gameOverScreen = document.getElementById("gameOver");
 const finalScoreText = document.getElementById("finalScore");
 
 let score = 0;
-let lives = 5;
+let lives = 3;
 let basketX = window.innerWidth / 2 - basket.offsetWidth / 2;
 let diyaInterval;
 let gameTimer;
