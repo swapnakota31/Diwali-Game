@@ -17,6 +17,13 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight" && basketX < window.innerWidth - 100) basketX += 30;
   basket.style.left = basketX + "px";
 });
+ d0cocument.addEventListener("touchmove", (e) => {
+    const touchX = e.touches[0].clientX;
+    basketX = touchX - basket.offsetWidth / 2;
+    if (basketX < 0) basketX = 0;
+    if (basketX > window.innerWidth - basket.offsetWidth) basketX = window.innerWidth - basket.offsetWidth;
+    basket.style.left = basketX + "px";
+});
 
 // Create falling diyas
 function createDiya() {
