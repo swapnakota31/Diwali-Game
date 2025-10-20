@@ -19,7 +19,7 @@ body {
 
 #basket {
   position: absolute;
-  bottom: 30x;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
@@ -105,6 +105,29 @@ body {
 
 @media screen and (max-width: 600px) {
 
+/* Mobile responsiveness for #gameOver */
+
+  #gameOver {
+    display: none;
+    flex-direction: column;   /* stack content vertically */
+    justify-content: center;
+    align-items: center;
+    width: 80%;               /* relative width */
+    padding: 20px;            /* smaller padding */
+    top: 35%;                 /* adjust vertical position */
+    gap: 15px;                /* space between heading, score, button */
+    transform: translate(-50%, -50%);
+  }
+
+  #gameOver h2 {
+    font-size: 1.5rem;        /* smaller heading */
+    text-align: center;
+  }
+
+  #gameOver button {
+    padding: 8px 16px;        /* smaller button */
+    font-size: 1rem;
+  }
   #basket {
     height: 90px;
     max-width: 120px;
@@ -112,3 +135,4 @@ body {
   bottom: 10%;
 }
 }
+
