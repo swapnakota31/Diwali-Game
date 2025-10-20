@@ -19,7 +19,7 @@ body {
 
 #basket {
   position: absolute;
-  bottom: 25px;
+  bottom: 30x;
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
@@ -54,12 +54,18 @@ body {
 #gameOver {
   display: none;
   position: absolute;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    gap: 20px;    
   top: 40%;
   left: 50%;
   color: hsl(55, 91%, 54%);
   transform: translate(-50%, -50%);
   background: rgba(0,0,0,0.85);
-  padding: 25px;
+  padding: 25px; 
   border-radius: 25px;
   text-align: center;
   box-shadow: 0 0 30px #ffbb00;
@@ -71,8 +77,8 @@ body {
 #gameOver button {
   background: linear-gradient(45deg, #ffbb00, #ff6600);
   border: none;
-  padding: 12px 25px;
-  margin-top: 10px;
+  padding: 10px 20px;
+  
   color: black;
   border-radius: 12px;
   cursor: pointer;
@@ -80,6 +86,7 @@ body {
   font-size: 1.1rem;
   box-shadow: 0 0 15px #ff66cc;
   transition: all 0.3s ease;
+
 }
 
 #gameOver button:hover { background: linear-gradient(45deg, #ffdf6b, #ff8800); transform: scale(1.1); }
@@ -96,14 +103,17 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) { #basket { width: 80px; height: 40px; } .diya { width: 30px; height: 30px; } #scoreboard, #lives { font-size: 1.2rem; } }
-@media (max-width: 600px) {  .diya { width: 25px; height: 25px; } #scoreboard, #lives { font-size: 1rem; } #gameOver h2 { font-size: 1.5rem; } #gameOver button { padding: 10px 20px; font-size: 1rem; } }
+@media (max-width: 400px) {  .diya { width: 25px; height: 25px; } #scoreboard, #lives { font-size: 1rem; } #gameOver h2 { font-size: 1.5rem; } #gameOver button {  font-size: 1rem; } }
 @media screen and (max-width: 600px) {
 
   #basket {
     height: 90px;
     max-width: 120px;
-    padding-bottom: 20px;
+     position: absolute;
+  bottom: 20%;
+}
+    
   }
   
-}
+
 
