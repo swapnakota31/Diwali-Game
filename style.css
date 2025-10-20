@@ -96,4 +96,4 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) { #basket { width: 80px; height: 40px; } .diya { width: 30px; height: 30px; } #scoreboard, #lives { font-size: 1.2rem; } }
-@media (max-width: 480px) { #basket { width: 60px; height: 30px; } .diya { width: 25px; height: 25px; } #scoreboard, #lives { font-size: 1rem; } #gameOver h2 { font-size: 1.5rem; } #gameOver button { padding: 10px 20px; font-size: 1rem; } }
+@media (max-width: 480px) { #basket { width: 100px; height:10px; } .diya { width: 25px; height: 25px; } #scoreboard, #lives { font-size: 1rem; } #gameOver h2 { font-size: 1.5rem; } #gameOver button { padding: 10px 20px; font-size: 1rem; } }
