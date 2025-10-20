@@ -129,10 +129,13 @@ body {
     font-size: 1rem;
   }
   #basket {
-    height: 90px;
-    max-width: 120px;
+    height: 60px;
+    max-width: 70px;
      position: absolute;
   bottom: 10%;
+}
+#gameTitle {
+  font-size: 1.5rem;
 }
 }
 
