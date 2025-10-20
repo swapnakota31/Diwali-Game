@@ -7,25 +7,36 @@ const finalScoreText = document.getElementById("finalScore");
 
 let score = 0;
 let lives = 5;
-let basketX = window.innerWidth / 2 - 50;
+let basketX = window.innerWidth / 2 - basket.offsetWidth / 2;
 let diyaInterval;
 let gameTimer;
 
-// Basket movement
+// Initialize basket position
+basket.style.left = basketX + "px";
+scoreboard.textContent = "Score: " + score;
+livesDisplay.textContent = "❤".repeat(lives);
+
+// --- Basket movement ---
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft" && basketX > 0) basketX -= 30;
-  if (e.key === "ArrowRight" && basketX < window.innerWidth - 100) basketX += 30;
+  if (e.key === "ArrowRight" && basketX < window.innerWidth - basket.offsetWidth) basketX += 30;
   basket.style.left = basketX + "px";
 });
- document.addEventListener("touchmove", (e) => {
+
+document.addEventListener(
+  "touchmove",
+  (e) => {
+    e.preventDefault();
     const touchX = e.touches[0].clientX;
     basketX = touchX - basket.offsetWidth / 2;
     if (basketX < 0) basketX = 0;
     if (basketX > window.innerWidth - basket.offsetWidth) basketX = window.innerWidth - basket.offsetWidth;
     basket.style.left = basketX + "px";
-});
+  },
+  { passive: false }
+);
 
-// Create falling diyas
+// --- Create falling diyas ---
 function createDiya() {
   const diya = document.createElement("div");
   diya.classList.add("diya");
@@ -40,16 +51,18 @@ function createDiya() {
     const basketRect = basket.getBoundingClientRect();
     const diyaRect = diya.getBoundingClientRect();
 
+    // Collision detection (partial overlap)
     if (
       diyaRect.bottom >= basketRect.top &&
-      diyaRect.left >= basketRect.left &&
-      diyaRect.right <= basketRect.right
+      diyaRect.top <= basketRect.bottom &&
+      diyaRect.right >= basketRect.left &&
+      diyaRect.left <= basketRect.right
     ) {
       score++;
       scoreboard.textContent = "Score: " + score;
       diya.remove();
       clearInterval(fall);
-    } else if (diyaY > window.innerHeight - 40) {
+    } else if (diyaY > window.innerHeight - diya.offsetHeight) {
       lives--;
       livesDisplay.textContent = "❤".repeat(lives);
       diya.remove();
@@ -59,7 +72,7 @@ function createDiya() {
   }, 20);
 }
 
-// Fireworks
+// --- Fireworks ---
 function showFireworks() {
   for (let i = 0; i < 25; i++) {
     const fire = document.createElement("div");
@@ -71,21 +84,23 @@ function showFireworks() {
   }
 }
 
-// End game
+// --- End game ---
 function endGame(timeUp = false) {
   clearInterval(diyaInterval);
   clearTimeout(gameTimer);
-  gameOverScreen.style.display = "block";
+  gameOverScreen.style.display = "flex";
   finalScoreText.textContent = timeUp
     ? `Time's up! You caught ${score} diyas! 🎇`
     : `You lost all lives! You caught ${score} diyas! 💔`;
   showFireworks();
 }
 
-// Restart
-function restartGame() { location.reload(); }
+// --- Restart ---
+function restartGame() {
+  location.reload();
+}
 
-// Start game
+// --- Start game ---
 function startGame() {
   basket.style.left = basketX + "px";
   diyaInterval = setInterval(createDiya, 1000);
