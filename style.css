@@ -101,34 +101,8 @@ body {
   z-index: 4;
 }
 
-/* Responsive */
-@media (max-width: 768px) { 
-    #basket { width: 80px; height: 40px; }
-     .diya { width: 30px; height: 30px; }
-      #scoreboard, #lives { font-size: 1.2rem;
-     } }
-@media (max-width: 400px) {
-      .diya { width: 25px; height: 25px; 
-    } 
-    #scoreboard, #lives { font-size: 1rem; 
-    } #gameOver {
-
-    
-        position: absolute;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    gap: 15px;
 
 
-} 
-
-#gameOver button {
-      font-size: 1rem;
-
-     } 
-    }
 @media screen and (max-width: 600px) {
 
   #basket {
@@ -137,17 +111,4 @@ body {
      position: absolute;
   bottom: 10%;
 }
-#gameover{
-       position: absolute;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    gap: 15px;
-    
 }
-    
-  }
-  
-
-
