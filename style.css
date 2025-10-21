@@ -142,8 +142,9 @@ body {
 /* Responsive */
 @media (max-width: 600px) {
   #basket {
-    width: 80px;
-    height: 50px;
+    width: 100px;
+    height:90px;
+
   }
 
   .diya {
